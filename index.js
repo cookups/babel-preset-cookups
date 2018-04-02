@@ -27,7 +27,7 @@ module.exports = function(api, options) {
   var presets = [
     isDefault && require('babel-preset-es2015').default,
     isDefault && require('babel-preset-es2017').default,
-    isFlowEnabled && require('babel-preset-flow').default
+    isFlowEnabled && require('babel-preset-flow').default,
     isReactNative && require('babel-preset-react-native'),
     (isNode && (!isReactNative || !isReactNativeWeb))  && [require('babel-preset-env'), {
       targets: {
