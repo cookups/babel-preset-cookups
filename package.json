@@ -1,6 +1,6 @@
 {
   "name": "babel-preset-cookups",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "cookups babel preset",
   "main": "index.js",
   "license": "MIT",
