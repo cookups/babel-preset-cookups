@@ -20,14 +20,14 @@ module.exports = function(api, options) {
 
   var isFlowEnabled = validateBoolOption('flow', options.flow, true);
   var isReactNative = validateBoolOption('react-native', options.reactNative, true);
-  var isReactNativeWeb = validateBoolOption('react-native-web', options.reactNativeWeb, true);
-  var isNode = validateBoolOption('node', options.node, true);
+  var isReactNativeWeb = validateBoolOption('react-native-web', options.reactNativeWeb, false);
+  var isNode = validateBoolOption('node', options.node, false);
 
 
   return {
     presets: [
       isReactNative && [require('babel-preset-react-native')],
-      isNode && [require('babel-preset-env'), {
+      (isNode && !(isReactNative)) && [require('babel-preset-env'), {
         targets: {
           node: 'current'
         }
