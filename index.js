@@ -25,9 +25,9 @@ module.exports = function(api, options) {
   var isDefault = validateBoolOption('default', (!isReactNativeWeb && !isReactNativeWeb && !isNode), true)
 
   var presets = [
-    isDefault && require('babel-preset-babel-preset-es2015'),
-    isDefault && require('babel-preset-babel-preset-es2017'),
-    isFlowEnabled && require('babel-preset-flow').default,
+    isDefault && require('babel-preset-es2015').default,
+    isDefault && require('babel-preset-es2017').default,
+    isFlowEnabled && require('babel-preset-flow').default
     isReactNative && require('babel-preset-react-native'),
     (isNode && (!isReactNative || !isReactNativeWeb))  && [require('babel-preset-env'), {
       targets: {
@@ -36,12 +36,11 @@ module.exports = function(api, options) {
     }],
   ];
 
-  var plugins = [
-    require('babel-plugin-syntax-dynamic-import').default,
-    require('babel-plugin-transform-decorators-legacy').default,
-    isReactNativeWeb && require('babel-plugin-react-native-web')
-  ];
-
+var plugins = [
+  require('babel-plugin-syntax-dynamic-import').default,
+  require('babel-plugin-transform-decorators-legacy').default,
+  isReactNativeWeb && require('babel-plugin-react-native-web')
+];
 
   return {
     presets: presets.filter(Boolean),

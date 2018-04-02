@@ -15,7 +15,7 @@ usage:
     [
       "cookups",
       {
-        "react-native": true
+        "reactNative": true
       }
     ]
   ]
